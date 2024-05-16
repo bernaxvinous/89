@@ -35,7 +35,7 @@ remove_charAt2 = remove_charAt1.replace(charAt2, "_");
 remove_charAt3 = remove_charAt2.replace(charAt3, "_");
 console.log(remove_charAt3);
 
-question_word = "<h4 id='word_display> p. "+remove_charAt3+"</h4>";
+question_word = "<h4 id='word_display'> p. "+remove_charAt3+"</h4>";
 input_box = "<br>resposta : <input type='text' id='input_check_box'>";                        
 check_button = "<br><br><button class='btn btn-info' onclick='check()'>Checar</button>";
 row = question_word + input_box + check_button ;
@@ -44,11 +44,11 @@ document.getElementById("word").value ="";
 }
 
 questionTurn ="player1";
-answerTurn ="player"
+answerTurn ="player2";
 
 function check()
 {
-    getAnswer = document.getElementById("inputCheckBox").value;
+    getAnswer = document.getElementById("input_check_box").value;
     answer = getAnswer.toLowerCase();
     console.log("resposta em caixa baixa - "+ answer);
     if(answer == word)
@@ -56,37 +56,37 @@ function check()
         if(answerTurn == "player1")
         {
             player1_score = player1_score +1;
-            document.getElementById("player1Score").innerHTML = player1Score;    
+            document.getElementById("player1_score").innerHTML = player1_score;    
         }
         else
         {
-            player2Score +1;
-            document.getElementById("player2Score").innerHTML= player2Score;
+            player2_score = player2_score +1;
+            document.getElementById("player2_score").innerHTML= player2_score;
+        
         }
-        if(questionTurn == player1)
+    }    
+        if(questionTurn == "player1")
         {   
             questionTurn = "player2"
-            document.getElementById("playerQuestion").innerHTML = "turno de pergunta: " + player2name
+            document.getElementById("player_question").innerHTML = "turno de pergunta: " + player2_name;
         }
         else
         {
             questionTurn = "player1"
-            document. getElementById("playerQuestion").innerHTML = "Turno de pergunta: " + player1name;
+            document. getElementById("player_question").innerHTML = "Turno de pergunta: " + player1_name;
         }
         
-        if(answerTurn == player1)
+        if(answerTurn == "player1")
         {   
             answerTurn = "player2"
-            document.getElementById("playerAnswer").innerHTML = "turno de resposta: " + player2name
+            document.getElementById("player_answer").innerHTML = "turno de resposta: " + player2_name;
         }
         else
         {
             answerTurn = "player1"
-            document. getElementById("playerAnswer").innerHTML = "Turno de resposta: " + playe1name;
+            document. getElementById("player_answer").innerHTML = "Turno de resposta: " + player1_name;
         }
 
         document.getElementById("output").innerHTML = "";
 
-    }  
-    
-}    
+}  
